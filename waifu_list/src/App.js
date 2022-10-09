@@ -10,7 +10,10 @@ function App() {
         fetch("http://waifu-list.eba-wprwgyza.us-east-1.elasticbeanstalk.com/api/all")
         .then(res => res.json())
         .then(data => {
-            setWaifus(data);
+            // Make sure to sort the array of waifus by rank
+            setWaifus(data.sort(function(a, b){
+                return a.rank - b.rank;
+            }));
         });
     }
 
