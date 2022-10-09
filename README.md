@@ -23,7 +23,7 @@ web-vitals@2.1.4
 ### ReactJS
 Basically, I converted all the direct database calls from my previous project to Axiom REST API calls to my back end. Then, I saved the results to a React state and rendered it as a component. 
 
-### Supabase (PostgreSQL)
+### Supabase
 I'm not using the Supabase package directly here, but instead just loading the images stored in a bucket from the public url. 
 
 ### AWS Amplify
