@@ -1,5 +1,5 @@
 # waifu-list-frontend
-This is the front end for my waifu list. It's supposed to display the list just like in the previous version's back end, but now using React. However, the back end is hosted without an SSL certificate, and all front end hosting services reroute HTTP requests to HTTPS. As such, the hosted version doesn't fully work, but rest assured, the local deployment does. 
+This is the front end for my waifu list. Currently it's same design as my old one, just with all the functionality implemented with React. I thought I'd start simple. Also, I'm really bad at UI/UX design. But, at long last, may I present: <a href="https://charles-waifu-list.web.app/">My finished waifu list!</a>
 
 ## Getting Started
 To get started locally, clone the repo and install the necessary dependencies (React, Axiom). Then:
@@ -26,8 +26,8 @@ Basically, I converted all the direct database calls from my previous project to
 ### Supabase
 I'm not using the Supabase package directly here, but instead just loading the images stored in a bucket from the public url. 
 
-### AWS Amplify
-I've tried Firebase, Vercel, and AWS Amplify. It seems that HTTPS rerouting is an industry standard now for front end hosting services. What a pain.
+### Firebase
+Since I switched to deploying the back end on Microsoft Azure, which auto-generates a SSL certificate for the domain name, I can now <a href="https://medium.com/swlh/how-to-deploy-a-react-app-with-firebase-hosting-98063c5bf425">deploy using Firebase</a>. 
 
 ## To Do
 ### State Management w/ Redux
