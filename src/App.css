@@ -1,0 +1,9 @@
+/* This is for when the back end doesn't load */
+.status-display {
+    color: black;
+    font-size: 250%;
+    text-align: center;
+    margin-top: 20%;
+    margin-bottom: 20%;
+    font-family: Arial, Helvetica, sans-serif;
+}

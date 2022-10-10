@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
+import "./App.css";
 
 
 function App() {
-    const [waifu, setWaifu] = useState("");
-    const [waifus, setWaifus] = useState([]);
+    let [waifu, setWaifu] = useState("");
+    let [waifus, setWaifus] = useState([]);
 
     const getAllWaifus = () => {
         fetch("https://charles-waifu-list.azurewebsites.net/api/all")
@@ -56,29 +57,41 @@ function App() {
         getAllWaifus();
     }, []);
 
-    return (
-        <table className="waifu-table">
-        <thead>
-            <tr>
-                <th><center>Rank</center></th>
-                <th><center>Name</center></th>
-                <th><center>Anime</center></th>
-                <th><center>Image</center></th>
-            </tr>
-        </thead>
-        
-        {waifus.map(function(waifu, i) {
-            return (
-                <tr key={i}>
-                    <td width="10%">{waifu.rank}</td>
-                    <td width="30%">{waifu.name}</td>
-                    <td width="30%">{waifu.anime}</td>
-                    <td width="30%"><img src={`${process.env.REACT_APP_SUPABASE_BUCKET}${waifu.image}`} width="100%"></img></td>
+    
+    if (waifus.length > 0) {
+        return (
+            <table className="waifu-table">
+            <thead>
+                <tr>
+                    <th><center>Rank</center></th>
+                    <th><center>Name</center></th>
+                    <th><center>Anime</center></th>
+                    <th><center>Image</center></th>
                 </tr>
-            );
-        })}
-        </table>
-    );
+            </thead>
+            
+            {waifus.map(function(waifu, i) {
+                return (
+                    <tr key={i}>
+                        <td width="10%">{waifu.rank}</td>
+                        <td width="30%">{waifu.name}</td>
+                        <td width="30%">{waifu.anime}</td>
+                        <td width="30%"><img src={`${process.env.REACT_APP_SUPABASE_BUCKET}${waifu.image}`} width="100%"></img></td>
+                    </tr>
+                );
+            })}
+            </table>
+        );
+    } else {
+        return (
+            <div className={"status-display"}>
+                <h1>Loading...</h1>
+                <br></br><span>If you have the time to read this message, it means the back end deployment may be down.</span>
+                <br></br><span>This is due to the instability of free hosting on Azure. Thank you for your patience.</span>
+                <br></br><span>For the server status, please check <a href="https://charles-waifu-list.azurewebsites.net/">https://charles-waifu-list.azurewebsites.net/</a></span>
+            </div>
+        );
+    }
 }
 
 export default App;
