@@ -7,7 +7,7 @@ function App() {
     const [waifus, setWaifus] = useState([]);
 
     const getAllWaifus = () => {
-        fetch("http://waifu-list.eba-wprwgyza.us-east-1.elasticbeanstalk.com/api/all")
+        fetch("https://charles-waifu-list.azurewebsites.net/api/all")
         .then(res => res.json())
         .then(data => {
             // Make sure to sort the array of waifus by rank
@@ -18,7 +18,7 @@ function App() {
     }
 
     const addWaifu = () => {
-        fetch("http://waifu-list.eba-wprwgyza.us-east-1.elasticbeanstalk.com/api", {
+        fetch("https://charles-waifu-list.azurewebsites.net/api", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -38,7 +38,7 @@ function App() {
     }
 
     const getWaifu = () => {
-        Axios.get("http://waifu-list.eba-wprwgyza.us-east-1.elasticbeanstalk.com/api", {
+        Axios.get("https://charles-waifu-list.azurewebsites.net/api", {
             params: {
                 name: "Lynn Wiles"
             }
